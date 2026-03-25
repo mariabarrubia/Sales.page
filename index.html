@@ -131,12 +131,11 @@
         .payment-logo {
             height: 30px;
             object-fit: contain;
-            filter: grayscale(100%) contrast(0.5);
             transition: all 0.3s ease;
         }
         
         .payment-logo:hover {
-            filter: none;
+            filter: brightness(0.9);
         }
         
         .ssl-badge {
@@ -156,12 +155,12 @@
     <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/39913/3vTmVoSYTlXck0g/salespage"></script>
     <!-- End of Digistore24 Trusted Badge Code -->
 
-    <!-- Hero Section -->
-    <section class="trust-section pt-32 pb-20 px-4">
+    <!-- Hero Section - Reduced top spacing (pt-12 instead of pt-32) -->
+    <section class="trust-section pt-12 pb-20 px-4">
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <!-- UPDATED TRUST BADGE -->
+                    <!-- TRUST BADGE with reduced spacing above -->
                     <div class="bg-green-100 text-green-800 font-semibold py-2 px-4 rounded-full inline-flex items-center text-sm mb-6">
                         <i class="fas fa-shield-alt mr-2"></i>Trusted by 2,847+ Immigrant Families
                     </div>
@@ -222,14 +221,9 @@
                     </div>
                     <p class="text-center text-gray-600">100% risk Free - 60 day money back policy.</p>
                     
-                    <!-- UPDATED PREVIEW DOWNLOAD LINK -->
-                    <div class="text-center mt-6">
-                        <a href="https://drive.google.com/uc?export=download&id=1yAYtc2uXCcnE0EaziZFjYb6C6HTjpPxa" class="cta-green font-bold py-3 px-6 rounded-lg text-center inline-block">
-                            <i class="fas fa-download mr-2"></i>Preview Download
-                        </a>
-                    </div>
+                    <!-- PREVIEW DOWNLOAD BUTTON REMOVED -->
                     
-                    <!-- ADDED "YOU'RE SAFE HERE" SECTION -->
+                    <!-- "YOU'RE SAFE HERE" SECTION -->
                     <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center mt-6">
                         <p class="text-sm font-medium text-blue-800">
                             <i class="fas fa-exclamation-circle mr-2"></i>
@@ -243,6 +237,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- NEW INDEPENDENT BOOK PREVIEW SECTION (below you're safe here box) -->
+    <section class="py-12 px-4 bg-gray-50 border-t border-b border-gray-200">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">📖 Book Preview</h2>
+            <div class="relative w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-xl">
+                <iframe src="https://simplebooklet.com/embed.php?wpKey=3LInLL2v46mTMTDTDq3u2P&source=embed" 
+                        allowfullscreen 
+                        class="absolute top-0 left-0 w-full h-full"
+                        style="border: 0; overflow: hidden;" 
+                        scrolling="no"></iframe>
+            </div>
+            <p class="text-center text-gray-600 mt-4 text-sm">Flip through the complete guide — see exactly what's inside</p>
         </div>
     </section>
 
@@ -407,9 +416,9 @@
             
             <div class="text-center">
                 <p class="text-red-600 font-bold text-xl mb-4 counter">142 People Bought Today</p>
-                <!-- UPDATED CTA TEXT -->
+                <!-- UPDATED CTA TEXT: Join Us - $47  -> Join the Community - $47 -->
                 <a href="https://www.checkout-ds24.com/product/625471" class="cta-primary font-bold py-4 px-8 rounded-lg text-center inline-block">
-                    Join Us - $47
+                    Join the Community - $47
                 </a>
                 <!-- ADDED SUPPORTING TEXT -->
                 <p class="mt-3 text-gray-600">Become a Success Story, not a Statistic</p>
@@ -518,7 +527,7 @@
         </div>
     </section>
 
-    <!-- Pricing & Bonuses Section -->
+    <!-- Pricing & Bonuses Section (5th CTA + updated payment logos) -->
     <section id="pricing" class="py-20 guarantee-section px-4">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Your No-Brainer Deal – Massive Value, Tiny Price</h2>
@@ -556,16 +565,19 @@
                     </ul>
                     
                     <div class="text-center mb-6">
+                        <!-- 5th CTA text changed as per request -->
                         <a href="https://www.checkout-ds24.com/product/625471" class="cta-blue font-bold py-4 px-8 rounded-lg text-center inline-block w-full">
-                            Secure Your Spot & Bonuses – $47 Instant
+                            SECURE MY SPOT & BONUSES – $47 INSTANTLY
                         </a>
                     </div>
                     
                     <div class="flex flex-col items-center">
+                        <!-- PAYMENT LOGOS: added gpay before mastercard, visa, paypal using local images -->
                         <div class="flex items-center justify-center mb-2 gap-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Mastercard" class="payment-logo h-8" style="filter: none;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="payment-logo h-8" style="filter: none;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Paypal_2014_logo.png/640px-Paypal_2014_logo.png" alt="PayPal" class="payment-logo h-8" style="filter: none;">
+                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo h-8" style="filter: none;">
+                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo h-8" style="filter: none;">
+                            <img src="images/visa.svg" alt="Visa" class="payment-logo h-8" style="filter: none;">
+                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo h-8" style="filter: none;">
                         </div>
                         <p class="ssl-badge text-xs text-green-600 font-medium flex items-center justify-center">
                             <i class="fas fa-lock"></i> Bank Level Protection: 256-bit SSL Encryption
@@ -787,11 +799,7 @@
         document.querySelectorAll('#faq button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
-                
-                // Toggle the hidden class on the content
                 content.classList.toggle('hidden');
-                
-                // Rotate the chevron icon
                 const icon = button.querySelector('i');
                 icon.classList.toggle('rotate-180');
             });
