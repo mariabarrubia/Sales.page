@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>U.S. Immigration Navigator PRO - Where Others Get Stuck, You Move Forward</title>
     
     <!-- Digistore24 Scripts -->
@@ -128,14 +128,21 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
-        .payment-logo {
-            height: 30px;
+        /* Enlarged payment logos */
+        .payment-logo-large {
+            height: 48px;
+            width: auto;
             object-fit: contain;
             transition: all 0.3s ease;
         }
         
-        .payment-logo:hover {
+        .payment-logo-large:hover {
             filter: brightness(0.9);
+        }
+        
+        /* Book preview scroll fix */
+        .book-preview-section iframe {
+            touch-action: pan-y;
         }
         
         .ssl-badge {
@@ -207,21 +214,26 @@
                     
                     <p class="italic text-gray-600 mb-8">Join 2,847+ immigrants who used our battle-tested system to navigate complex U.S. immigration successfully - even if you've been denied before</p>
                     
-                    <!-- UPDATED CTA TEXT -->
+                    <!-- UPDATED CTA SECTION: Badge moved above button, payment logos added below -->
                     <div class="text-center mb-6">
-                        <a href="https://www.checkout-ds24.com/product/625471" class="cta-primary font-bold py-4 px-8 rounded-lg text-center inline-block text-xl">
-                            REDUCE THE UNCERTAINTY – $47
-                        </a>
-                        <!-- ADDED SAVE $10,000+ IN FEES BADGE -->
-                        <div class="mt-3">
+                        <!-- SAVE $10,000+ IN FEES BADGE - MOVED ABOVE BUTTON -->
+                        <div class="mb-3">
                             <span class="inline-block bg-green-100 text-green-800 font-bold py-1 px-3 rounded-full text-sm">
                                 Save $10,000+ in Fees
                             </span>
                         </div>
+                        <a href="https://www.checkout-ds24.com/product/625471" class="cta-primary font-bold py-4 px-8 rounded-lg text-center inline-block text-xl">
+                            REDUCE THE UNCERTAINTY – $47
+                        </a>
+                        <!-- ADDED PAYMENT ICONS (BIGGER) BELOW BUTTON -->
+                        <div class="flex items-center justify-center gap-4 mt-4">
+                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
+                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
+                            <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
+                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
+                        </div>
                     </div>
                     <p class="text-center text-gray-600">100% risk Free - 60 day money back policy.</p>
-                    
-                    <!-- PREVIEW DOWNLOAD BUTTON REMOVED -->
                     
                     <!-- "YOU'RE SAFE HERE" SECTION -->
                     <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center mt-6">
@@ -240,8 +252,8 @@
         </div>
     </section>
 
-    <!-- NEW INDEPENDENT BOOK PREVIEW SECTION (below you're safe here box) -->
-    <section class="py-12 px-4 bg-gray-50 border-t border-b border-gray-200">
+    <!-- NEW INDEPENDENT BOOK PREVIEW SECTION (with scroll fix and updated text) -->
+    <section class="book-preview-section py-12 px-4 bg-gray-50 border-t border-b border-gray-200">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">📖 Book Preview</h2>
             <div class="relative w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-xl">
@@ -251,7 +263,8 @@
                         style="border: 0; overflow: hidden;" 
                         scrolling="no"></iframe>
             </div>
-            <p class="text-center text-gray-600 mt-4 text-sm">Flip through the complete guide — see exactly what's inside</p>
+            <!-- UPDATED TEXT BELOW PREVIEW -->
+            <p class="text-center text-gray-600 mt-4 text-sm">Flip through the book's preview — you'll have an idea what's inside</p>
         </div>
     </section>
 
@@ -477,16 +490,23 @@
             <div class="bg-white p-8 rounded-xl shadow-md text-center max-w-2xl mx-auto">
                 <h3 class="text-2xl font-bold mb-4">Total Value: <span class="line-through text-gray-500">$599</span></h3>
                 <p class="text-gray-600 mb-6">But today, you get everything for just one payment of:</p>
-                <!-- ADDED SAVE $10,000+ LEGAL FEES BADGE -->
+                <!-- SAVE $10,000+ LEGAL FEES BADGE - MADE SMALLER -->
                 <div class="mb-4">
-                    <span class="inline-block bg-green-100 text-green-800 font-bold py-2 px-4 rounded-lg text-lg">
+                    <span class="inline-block bg-green-100 text-green-800 font-bold py-1 px-3 rounded-full text-sm">
                         Save $10,000+ Legal Fees
                     </span>
                 </div>
-                <div class="text-center mb-6">
+                <div class="text-center mb-4">
                     <a href="https://www.checkout-ds24.com/product/625471" class="cta-blue font-bold py-4 px-8 rounded-lg text-center inline-block">
                         Claim It All Now – $47 One-Time
                     </a>
+                </div>
+                <!-- ADDED LARGE PAYMENT ICONS BELOW 4TH BUY BUTTON -->
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
+                    <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
+                    <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
+                    <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
                 </div>
                 <p class="text-gray-600">Instant Download + Portal Access</p>
             </div>
@@ -527,7 +547,7 @@
         </div>
     </section>
 
-    <!-- Pricing & Bonuses Section (5th CTA + updated payment logos) -->
+    <!-- Pricing & Bonuses Section (5th CTA + ENLARGED payment logos) -->
     <section id="pricing" class="py-20 guarantee-section px-4">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Your No-Brainer Deal – Massive Value, Tiny Price</h2>
@@ -572,12 +592,12 @@
                     </div>
                     
                     <div class="flex flex-col items-center">
-                        <!-- PAYMENT LOGOS: added gpay before mastercard, visa, paypal using local images -->
+                        <!-- PAYMENT LOGOS: ENLARGED (h-12 instead of h-8) -->
                         <div class="flex items-center justify-center mb-2 gap-4">
-                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo h-8" style="filter: none;">
-                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo h-8" style="filter: none;">
-                            <img src="images/visa.svg" alt="Visa" class="payment-logo h-8" style="filter: none;">
-                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo h-8" style="filter: none;">
+                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
+                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
+                            <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
+                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
                         </div>
                         <p class="ssl-badge text-xs text-green-600 font-medium flex items-center justify-center">
                             <i class="fas fa-lock"></i> Bank Level Protection: 256-bit SSL Encryption
