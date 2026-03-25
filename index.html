@@ -128,15 +128,24 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
-        /* Enlarged payment logos */
-        .payment-logo-large {
-            height: 48px;
+        /* Bigger icons for Visa, Mastercard, Google Pay */
+        .payment-logo-big {
+            height: 56px;
             width: auto;
             object-fit: contain;
             transition: all 0.3s ease;
         }
         
-        .payment-logo-large:hover {
+        /* Smaller icon for PayPal */
+        .payment-logo-small {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-logo-big:hover,
+        .payment-logo-small:hover {
             filter: brightness(0.9);
         }
         
@@ -214,7 +223,7 @@
                     
                     <p class="italic text-gray-600 mb-8">Join 2,847+ immigrants who used our battle-tested system to navigate complex U.S. immigration successfully - even if you've been denied before</p>
                     
-                    <!-- UPDATED CTA SECTION: Badge moved above button, payment logos added below -->
+                    <!-- UPDATED CTA SECTION: Badge moved above button, payment logos with fixed white background and resized icons -->
                     <div class="text-center mb-6">
                         <!-- SAVE $10,000+ IN FEES BADGE - MOVED ABOVE BUTTON -->
                         <div class="mb-3">
@@ -225,12 +234,14 @@
                         <a href="https://www.checkout-ds24.com/product/625471" class="cta-primary font-bold py-4 px-8 rounded-lg text-center inline-block text-xl">
                             REDUCE THE UNCERTAINTY – $47
                         </a>
-                        <!-- ADDED PAYMENT ICONS (BIGGER) BELOW BUTTON -->
-                        <div class="flex items-center justify-center gap-4 mt-4">
-                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
-                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
-                            <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
-                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
+                        <!-- ADDED PAYMENT ICONS with white background wrapper to fix mastercard white background issue, and resized icons -->
+                        <div class="flex items-center justify-center mt-4">
+                            <div class="bg-white rounded-lg p-2 inline-flex items-center justify-center gap-4 shadow-sm">
+                                <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-big">
+                                <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-big">
+                                <img src="images/visa.svg" alt="Visa" class="payment-logo-big">
+                                <img src="images/paypal.svg" alt="PayPal" class="payment-logo-small">
+                            </div>
                         </div>
                     </div>
                     <p class="text-center text-gray-600">100% risk Free - 60 day money back policy.</p>
@@ -501,12 +512,12 @@
                         Claim It All Now – $47 One-Time
                     </a>
                 </div>
-                <!-- ADDED LARGE PAYMENT ICONS BELOW 4TH BUY BUTTON -->
+                <!-- ADDED LARGE PAYMENT ICONS (resized: bigger for visa,gpay,mastercard; smaller for paypal) -->
                 <div class="flex items-center justify-center gap-4 mb-4">
-                    <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
-                    <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
-                    <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
-                    <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
+                    <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-big">
+                    <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-big">
+                    <img src="images/visa.svg" alt="Visa" class="payment-logo-big">
+                    <img src="images/paypal.svg" alt="PayPal" class="payment-logo-small">
                 </div>
                 <p class="text-gray-600">Instant Download + Portal Access</p>
             </div>
@@ -547,7 +558,7 @@
         </div>
     </section>
 
-    <!-- Pricing & Bonuses Section (5th CTA + ENLARGED payment logos) -->
+    <!-- Pricing & Bonuses Section (5th CTA + resized payment logos) -->
     <section id="pricing" class="py-20 guarantee-section px-4">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Your No-Brainer Deal – Massive Value, Tiny Price</h2>
@@ -592,12 +603,12 @@
                     </div>
                     
                     <div class="flex flex-col items-center">
-                        <!-- PAYMENT LOGOS: ENLARGED (h-12 instead of h-8) -->
+                        <!-- PAYMENT LOGOS: resized bigger for visa,gpay,mastercard, smaller for paypal -->
                         <div class="flex items-center justify-center mb-2 gap-4">
-                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-large">
-                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-large">
-                            <img src="images/visa.svg" alt="Visa" class="payment-logo-large">
-                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo-large">
+                            <img src="images/gpay.svg" alt="Google Pay" class="payment-logo-big">
+                            <img src="images/mastercard.svg" alt="Mastercard" class="payment-logo-big">
+                            <img src="images/visa.svg" alt="Visa" class="payment-logo-big">
+                            <img src="images/paypal.svg" alt="PayPal" class="payment-logo-small">
                         </div>
                         <p class="ssl-badge text-xs text-green-600 font-medium flex items-center justify-center">
                             <i class="fas fa-lock"></i> Bank Level Protection: 256-bit SSL Encryption
