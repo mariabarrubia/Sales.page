@@ -149,11 +149,100 @@
             filter: brightness(0.9);
         }
         
-        /* Book preview scroll fix */
-        .book-preview-section iframe {
-            touch-action: pan-y;
+        /* Book preview popup styles */
+        .book-preview-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-        
+
+        .book-preview-popup.active {
+            display: flex;
+        }
+
+        .book-preview-content {
+            background: white;
+            width: 100%;
+            max-width: 1000px;
+            height: 85vh;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .book-preview-iframe-wrapper {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            background: #f1f5f9;
+        }
+
+        .book-preview-iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .book-preview-footer {
+            padding: 12px 20px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .book-preview-done-btn {
+            background-color: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 8px 28px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .book-preview-done-btn:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.02);
+        }
+
+        .book-preview-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
         .ssl-badge {
             font-size: 0.75rem;
             padding-top: 4px;
@@ -162,6 +251,18 @@
         .ssl-badge i {
             font-size: 0.9em;
             margin-right: 4px;
+        }
+
+        @media (max-width: 640px) {
+            .book-preview-content {
+                height: 70vh;
+            }
+            .payment-logo-big {
+                height: 44px;
+            }
+            .payment-logo-small {
+                height: 28px;
+            }
         }
     </style>
 </head>
@@ -263,21 +364,34 @@
         </div>
     </section>
 
-    <!-- NEW INDEPENDENT BOOK PREVIEW SECTION (with scroll fix and updated text) -->
-    <section class="book-preview-section py-12 px-4 bg-gray-50 border-t border-b border-gray-200">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">📖 Book Preview</h2>
-            <div class="relative w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden shadow-xl">
-                <iframe src="https://simplebooklet.com/embed.php?wpKey=3LInLL2v46mTMTDTDq3u2P&source=embed" 
-                        allowfullscreen 
-                        class="absolute top-0 left-0 w-full h-full"
-                        style="border: 0; overflow: hidden;" 
-                        scrolling="no"></iframe>
-            </div>
-            <!-- UPDATED TEXT BELOW PREVIEW -->
-            <p class="text-center text-gray-600 mt-4 text-sm">Flip through the book's preview — you'll have an idea what's inside</p>
+    <!-- NEW BOOK PREVIEW SECTION WITH POPUP BUTTON -->
+    <section class="py-12 px-4 bg-gray-50 border-t border-b border-gray-200">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">📖 Book Preview</h2>
+            <p class="text-gray-600 mb-6">Take a look inside before you buy</p>
+            <button onclick="openBookPreview()" class="cta-blue font-bold py-3 px-8 rounded-lg inline-flex items-center gap-2">
+                <i class="fas fa-book-open"></i>Preview Book
+            </button>
+            <p class="text-center text-gray-500 mt-4 text-sm">Click to flip through the book's preview — you'll have an idea what's inside</p>
         </div>
     </section>
+
+    <!-- Book Preview Popup -->
+    <div id="bookPreviewPopup" class="book-preview-popup" onclick="closeBookPreview(event)">
+        <div class="book-preview-content" onclick="event.stopPropagation()">
+            <button class="book-preview-close" onclick="closeBookPreview()"><i class="fas fa-times text-gray-700"></i></button>
+            <div class="book-preview-iframe-wrapper">
+                <iframe src="https://simplebooklet.com/embed.php?wpKey=3LInLL2v46mTMTDTDq3u2P&source=embed" 
+                        allowfullscreen 
+                        loading="lazy"
+                        title="Book Preview"
+                        style="border:0; width:100%; height:100%;"></iframe>
+            </div>
+            <div class="book-preview-footer">
+                <button class="book-preview-done-btn" onclick="closeBookPreview()"><i class="fas fa-check-circle"></i> Done</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ADDED RESOURCES VALIDATED SECTION -->
     <section class="py-8 bg-white border-t border-b border-gray-200">
@@ -835,6 +949,19 @@
                 icon.classList.toggle('rotate-180');
             });
         });
+
+        // Book Preview Popup functions
+        function openBookPreview() {
+            document.getElementById('bookPreviewPopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookPreview(e) {
+            if (!e || e.target.id === 'bookPreviewPopup' || e.target.closest('.book-preview-close') || e.target.closest('.book-preview-done-btn')) {
+                document.getElementById('bookPreviewPopup').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
 
         // Dynamic counter (simulated)
         document.addEventListener('DOMContentLoaded', () => {
